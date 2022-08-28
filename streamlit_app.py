@@ -6,7 +6,7 @@ from scipy.stats import norm
 import altair as alt
 
 st.set_page_config(
-    page_title="A/B Testing App", page_icon="📊", initial_sidebar_state="expanded"
+    page_title="Experimental Design - AB Test", page_icon="📊", initial_sidebar_state="expanded"
 )
 
 
@@ -272,7 +272,7 @@ Upload your experiment results to see the significance of your A/B test.
 uploaded_file = st.file_uploader("Upload CSV", type=".csv")
 
 use_example_file = st.checkbox(
-    "Use example file", False, help="Use in-built example file to demo the app"
+    "Consider example file", False, help="Use in-built example file to demo the app"
 )
 
 ab_default = None
@@ -281,8 +281,8 @@ result_default = None
 # If CSV is not uploaded and checkbox is filled, use values from the example file
 # and pass them down to the next if block
 if use_example_file:
-    uploaded_file = "Website_Results.csv"
-    ab_default = ["variant"]
+    uploaded_file = "post_intervention.csv"
+    ab_default = ["Arm"]
     result_default = ["converted"]
 
 
@@ -355,7 +355,7 @@ if uploaded_file:
 
     # type(uploaded_file) == str, means the example file was used
     name = (
-        "Website_Results.csv" if isinstance(uploaded_file, str) else uploaded_file.name
+        "post_intervention.csv" if isinstance(uploaded_file, str) else uploaded_file.name
     )
     st.write("")
     st.write("## Results for A/B test from ", name)
