@@ -264,7 +264,7 @@ def calculate_significance(
 
 st.write(
     """
-# 📊 A/B Testing App
+# 📊 Experimental Design - AB Test
 Upload your experiment results to see the significance of your A/B test.
 """
 )
@@ -428,3 +428,10 @@ if uploaded_file:
         .applymap(style_negative, props="color:red;")
         .apply(style_p_value, props="color:red;", axis=1, subset=["p-value"])
     )
+hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
