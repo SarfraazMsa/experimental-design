@@ -283,7 +283,7 @@ result_default = None
 if use_example_file:
     uploaded_file = "post_intervention.csv"
     ab_default = ["Arm"]
-    result_default = ["converted"]
+    result_default = ["User converted"]
 
 
 if uploaded_file:
